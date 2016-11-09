@@ -1,0 +1,10 @@
+version: '2'
+services:
+    sakini-elasticsearch:
+        container_name: sakini-elasticsearch
+        image: elasticsearch:2.4.0
+        # volumes:
+        #     - ~/volumes/jhipster/sakini/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300
