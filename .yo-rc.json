@@ -2,21 +2,21 @@
   "generator-jhipster": {
     "jhipsterVersion": "3.9.1",
     "baseName": "sakini",
-    "packageName": "comm.sakini",
-    "packageFolder": "comm/sakini",
+    "packageName": "com.sakini",
+    "packageFolder": "com/sakini",
     "serverPort": "8080",
-    "authenticationType": "jwt",
+    "authenticationType": "session",
     "hibernateCache": "ehcache",
     "clusteredHttpSession": "hazelcast",
     "websocket": "spring-websocket",
     "databaseType": "sql",
-    "devDatabaseType": "mysql",
+    "devDatabaseType": "h2Memory",
     "prodDatabaseType": "mysql",
     "searchEngine": "elasticsearch",
-    "messageBroker": "kafka",
+    "messageBroker": false,
     "buildTool": "maven",
     "enableSocialSignIn": true,
-    "jwtSecretKey": "7764185a7b8476db85712a555fa6e5007d2a4f6a",
+    "rememberMeKey": "2121a91da221bfdf3f107b16af7ec678be4b7dce",
     "useSass": true,
     "applicationType": "monolith",
     "testFrameworks": [
@@ -26,7 +26,8 @@
     "enableTranslation": true,
     "nativeLanguage": "fr",
     "languages": [
-      "fr"
+      "fr",
+      "en"
     ]
   }
 }

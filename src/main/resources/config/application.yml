@@ -16,8 +16,6 @@ management:
     health:
         mail:
             enabled: false # When using the MailService, configure an SMTP server and set this to true
-        binders:
-            enabled: true
 spring:
     application:
         name: sakini
@@ -92,7 +90,7 @@ jhipster:
         license:
         licenseUrl:
     social:
-        redirectAfterSignIn: "/#/social-auth"
+        redirectAfterSignIn: "/#/home"
     ribbon:
         # comma seperated list of profiles to show a ribbon on the GUI
         displayOnActiveProfiles: dev

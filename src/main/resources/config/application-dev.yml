@@ -22,30 +22,18 @@ spring:
             enabled: false # we use gulp + BrowserSync for livereload
     jackson:
         serialization.indent_output: true
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/sakini?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:h2:mem:sakini;DB_CLOSE_DELAY=-1
         name:
-        username: root
+        username: sakini
         password:
-        hikari:
-            data-source-properties:
-                cachePrepStmts: true
-                prepStmtCacheSize: 250
-                prepStmtCacheSqlLimit: 2048
-                useServerPrepStmts: true
+    h2:
+        console:
+            enabled: false
     jpa:
-        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-        database: MYSQL
+        database-platform: com.sakini.domain.util.FixedH2Dialect
+        database: H2
         show-sql: true
         properties:
             hibernate.cache.use_second_level_cache: true
@@ -88,11 +76,9 @@ jhipster:
         ehcache:
             maxBytesLocalHeap: 16M
     security:
-        authentication:
-            jwt:
-                secret: my-secret-token-to-change-in-production
-                # Token is valid 24 hours
-                tokenValidityInSeconds: 86400
+        rememberMe:
+            # security key (this key should be unique for your application, and kept secret)
+            key: 2121a91da221bfdf3f107b16af7ec678be4b7dce
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: sakini@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

@@ -17,28 +17,28 @@
             overflowToDisk="false"
             />
 
-    <cache name="comm.sakini.domain.User"
+    <cache name="com.sakini.domain.User"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="comm.sakini.domain.Authority"
+    <cache name="com.sakini.domain.Authority"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="comm.sakini.domain.User.authorities"
+    <cache name="com.sakini.domain.User.authorities"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="comm.sakini.domain.PersistentToken"
+    <cache name="com.sakini.domain.PersistentToken"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="comm.sakini.domain.User.persistentTokens"
+    <cache name="com.sakini.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
     
 
-    <cache name="comm.sakini.social.SocialUserConnection"
+    <cache name="com.sakini.social.SocialUserConnection"
            timeToLiveSeconds="3600">
     </cache>
 

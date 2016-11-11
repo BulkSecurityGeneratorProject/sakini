@@ -17,15 +17,6 @@ spring:
             enabled: false
         livereload:
             enabled: false
-    cloud:
-        stream:
-            kafka:
-                binder:
-                    brokers: localhost
-                    zk-nodes: localhost
-            bindings:
-                output:
-                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/sakini?useUnicode=true&characterEncoding=utf8&useSSL=false
@@ -84,11 +75,9 @@ jhipster:
         ehcache:
             maxBytesLocalHeap: 256M
     security:
-        authentication:
-            jwt:
-                secret: 7764185a7b8476db85712a555fa6e5007d2a4f6a
-                # Token is valid 24 hours
-                tokenValidityInSeconds: 86400
+        rememberMe:
+            # security key (this key should be unique for your application, and kept secret)
+            key: 2121a91da221bfdf3f107b16af7ec678be4b7dce
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: sakini@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
