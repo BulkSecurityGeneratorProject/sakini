@@ -1,0 +1,111 @@
+#filename: db.jdl
+#direction: right
+#gutter: 5
+
+/* groupe */
+entity Group {
+	name String,
+    
+}
+/* niveau de confidentialité du groupe
+entity GroupPrivacy {
+	name String
+}
+
+/* utilisateur 
+ * se rattacher à l'utilisateur jhipster
+*/
+entity User {
+	firstname String,
+    lastName String,
+    email String,
+    password String
+}
+
+/*
+ * Langues supportées par l'application.
+ * En prévision de l'internationalisation.
+ */
+entity Language {
+	lang String
+}
+/*
+* Pays : peut-être pas nécessaire pour l'instant
+*/
+entity Country {
+	countryName String
+}
+/** évènement */
+entity Event {
+	name String	
+}
+/* distribultion de roles sur l'évènement 
+ * Version 1 : un seul utilisateur avec rôle owner
+*/
+entity EventManager {
+
+}
+/* groupes invités à l'évènement*/
+entity EventGroupProspect {}
+
+/* Utilisateurs invités à l'évènement */
+entity EventUserProspect {
+}
+/* invités invités à l'évènement
+entity EventGestProspect {
+
+}
+/* Invité */
+entity Guest {
+	email String
+}
+
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+
+entity Notification {
+
+}
+
+
+entity Tag {
+ name String
+}
+
+entity GroupRole {
+	name String
+}
+
+entity EventRole {
+	name String
+}
+
+entity Membership {}
+
+relationship OneToOne {
+	Group{region} to GroupPrivacy
+}
+relationship ManyToOne {
+	Membership{member} to User,
+    Membership{group} to Group,
+    Membership{role} to GroupRole,
+    Event{location} to Location,
+    EventGuestGroup{event} to Event,
+    EventManager{user} to User,
+    EventManager{role} to EventRole,
+    EventManager{event} to Event,
+    EventGuestProspect{guest} to Guest,
+    EventGuestProspect{event} to Event,
+    EventUserProspect{user} to User,
+    EventUserProspect{event} to Event,
+    EventGroupProspect{event} to Event,
+    EventGroupProspect{group} to Group   
+}
