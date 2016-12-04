@@ -37,7 +37,9 @@ entity Country {
 }
 /** évènement */
 entity Event {
-	name String	
+	name String,
+    startDate ZoneDateTime,
+    endDate ZoneDateTime
 }
 /* distribultion de roles sur l'évènement 
  * Version 1 : un seul utilisateur avec rôle owner
@@ -52,7 +54,7 @@ entity EventGroupProspect {}
 entity EventUserProspect {
 }
 /* invités invités à l'évènement
-entity EventGestProspect {
+entity EventGuestProspect {
 
 }
 /* Invité */
@@ -88,12 +90,14 @@ entity EventRole {
 	name String
 }
 
-entity Membership {}
-
-relationship OneToOne {
-	Group{region} to GroupPrivacy
+entity Membership {
+	date ZoneDateTime
 }
+
 relationship ManyToOne {
+	User{language} to Language,
+    User{country} to Country,
+	Group{privacy} to GroupPrivacy,
 	Membership{member} to User,
     Membership{group} to Group,
     Membership{role} to GroupRole,
@@ -108,4 +112,8 @@ relationship ManyToOne {
     EventUserProspect{event} to Event,
     EventGroupProspect{event} to Event,
     EventGroupProspect{group} to Group   
+}
+
+relationship ManyToMany {
+	Event{tag} to Tag{event}
 }
